@@ -1,30 +1,32 @@
 {
-    "strict": true,
     "debug": true,
     "sp": {
-        "entityId": "https://<sp_domain>/metadata/",
+        "entityId": "https://license.crc.gov.mn",
         "assertionConsumerService": {
-            "url": "https://<sp_domain>/?acs",
+            "url": "https://license.crc.gov.mn/saml/?acs",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
         },
         "singleLogoutService": {
-            "url": "https://<sp_domain>/?sls",
+            "url": "https://license.crc.gov.mn/saml/?sls",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
         "NameIDFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+		"spID" : "ffcc8f9da81f9dc6933f7de8be739df9-0d140bc4cb5a16c93318d2a1",
         "x509cert": "",
         "privateKey": ""
     },
     "idp": {
-        "entityId": "https://app.onelogin.com/saml/metadata/<onelogin_connector_id>",
+		"index" : "https://sso.gov.mn/",
+        "entityId": "https://sso.gov.mn/saml2/",
         "singleSignOnService": {
-            "url": "https://app.onelogin.com/trust/saml2/http-post/sso/<onelogin_connector_id>",
+			"login" : "https://sso.gov.mn/login",
+            "url": "https://sso.gov.mn/saml2/sso",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
         "singleLogoutService": {
-            "url": "https://app.onelogin.com/trust/saml2/http-redirect/slo/<onelogin_connector_id>",
+            "url": "https://sso.gov.mn/saml2/slo",
             "binding": "urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect"
         },
-        "x509cert": "<onelogin_connector_cert>"
+        "x509cert": "-----BEGIN CERTIFICATE-----MIID9zCCAt+gAwIBAgIRAJzD0C5sta7RjmZlbEpHTIYwDQYJKoZIhvcNAQELBQAwgacxCzAJBgNVBAYTAk1OMRQwEgYDVQQHDAtVbGFhbmJhYXRhcjEoMCYGA1UECQwfU3VraGJhYXRhciBTcXVhcmUtMSwgQ2hpbmdlbHRlaTEhMB8GA1UEMwwYUC5PLkItNzg1LCBDSVRBIEJ1aWxkaW5nMQ0wCwYDVQQKDARDSVRBMSYwJAYDVQQDDB1Nb25nb2xpYW4gTmF0aW9uYWwgSXNzdWluZyBDQTAeFw0xODA4MjkwOTQyMDNaFw0yMDA4MjkwOTQyMDRaMG0xFDASBgNVBAcTC1VsYWFuYmFhdGFyMQswCQYDVQQGEwJNTjEUMBIGA1UECAwLVWxhYW5iYWF0YXIxHTAbBgNVBAoMFE5hdGlvbmFsIERhdGEgQ2VudGVyMRMwEQYDVQQDDApzc28uZ292Lm1uMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA6GrV6PofXBsEG9cSo9JGmm2GFdLJzTU0aLCzUNYxSQYzmuB3Qwo15vJIeqAaG+jqAlMzDKqlcQ2dAGGmI+tgCfytGWTYVDFHc93p8VKLDZMbj8q83LrT4AzrLsBYW4+O9DdCesZEGRSsrFyWkMy9GIXfal97iLAjKXfVqzWCL3yOMMA4o5FGv1ULHvWUmPBnf2u5HpFadS5CtVk9eb78WquazGm8M6DVBpP12lpG5Y3ybUI4iBnv1zbSKaEwnafoPhp+wmmYGywqCcgioFXxQ+COKpm82SBmmJZQJi0YoRVvrRoCsnBzUG0b+74MqSnehagdNrc/ptr7i813i7I15wIDAQABo1cwVTATBgNVHSUEDDAKBggrBgEFBQcDATAfBgNVHSMEGDAWgBQOa6KTK1obsefk8ifnaWxs20Qg1zAdBgNVHQ4EFgQU2pz3oLbBAUSC+gy1Ebsn38LS7FAwDQYJKoZIhvcNAQELBQADggEBAMg5IbTbTUFRrZoyZCZIRO9SYECYOHIhB3C6N5OM2499WjB6lCUkq+eRuWXLleMOJF8qm/iHHia6/9qlZEfYCVxnq4BjZzWVEP1bLcGO/uz5jl+w5f633CdQPmILtbTeFOSkvRq/Bg3ttVO9aK56q3W161jjrOoLX9+Y4VY64X9uauLvQLL5E85ZKLWegu+hY3BEoRfpgTp0mk7WezC4Yh9kOZ6HlZRdsjICulHr2fViktveZh8WQ/Tt3k5mMh3BYG+9u5MChwj8U91AXygT2gF9YnOj93yON+ip/vrIcJ1FAjpWHnZj+b0vIepbfoBRvcsg1AAgyDbQ1lTYkaaL+9E=-----END CERTIFICATE-----"
     }
 }

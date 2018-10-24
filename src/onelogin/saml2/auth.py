@@ -414,7 +414,7 @@ class OneLogin_Saml2_Auth(object):
         :rtype: string
         """
         idp_data = self.__settings.get_idp_data()
-        return idp_data['singleSignOnService']['url']
+        return idp_data['singleSignOnService']['login']
 
     def get_slo_url(self):
         """
@@ -429,7 +429,7 @@ class OneLogin_Saml2_Auth(object):
             url = idp_data['singleLogoutService']['url']
         return url
 
-    def build_request_signature(self, saml_request, relay_state, sign_algorithm=OneLogin_Saml2_Constants.RSA_SHA1):
+    def build_request_signature(self, saml_request, relay_state, sign_algorithm=OneLogin_Saml2_Constants.RSA_SHA256):
         """
         Builds the Signature of the SAML Request.
 
@@ -444,7 +444,7 @@ class OneLogin_Saml2_Auth(object):
         """
         return self.__build_signature(saml_request, relay_state, 'SAMLRequest', sign_algorithm)
 
-    def build_response_signature(self, saml_response, relay_state, sign_algorithm=OneLogin_Saml2_Constants.RSA_SHA1):
+    def build_response_signature(self, saml_response, relay_state, sign_algorithm=OneLogin_Saml2_Constants.RSA_SHA256):
         """
         Builds the Signature of the SAML Response.
         :param saml_request: The SAML Response
@@ -458,7 +458,7 @@ class OneLogin_Saml2_Auth(object):
         """
         return self.__build_signature(saml_response, relay_state, 'SAMLResponse', sign_algorithm)
 
-    def __build_signature(self, saml_data, relay_state, saml_type, sign_algorithm=OneLogin_Saml2_Constants.RSA_SHA1):
+    def __build_signature(self, saml_data, relay_state, saml_type, sign_algorithm=OneLogin_Saml2_Constants.RSA_SHA256):
         """
         Builds the Signature
         :param saml_data: The SAML Data

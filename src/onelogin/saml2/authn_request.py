@@ -9,6 +9,7 @@ AuthNRequest class of OneLogin's Python Toolkit.
 
 """
 from base64 import b64encode
+import time
 
 from onelogin.saml2.constants import OneLogin_Saml2_Constants
 from onelogin.saml2.utils import OneLogin_Saml2_Utils
@@ -46,7 +47,7 @@ class OneLogin_Saml2_Authn_Request(object):
 
         uid = OneLogin_Saml2_Utils.generate_unique_id()
         self.__id = uid
-        issue_instant = OneLogin_Saml2_Utils.parse_time_to_SAML(OneLogin_Saml2_Utils.now())
+        issue_instant = str(int(time.time()))
 
         destination = idp_data['singleSignOnService']['url']
 
@@ -107,6 +108,7 @@ class OneLogin_Saml2_Authn_Request(object):
     Version="2.0"%(provider_name)s%(force_authn_str)s%(is_passive_str)s
     IssueInstant="%(issue_instant)s"
     Destination="%(destination)s"
+    spID="%(sp_id)s"
     ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST"
     AssertionConsumerServiceURL="%(assertion_url)s"
     %(attr_consuming_service_str)s>
@@ -123,7 +125,8 @@ class OneLogin_Saml2_Authn_Request(object):
                 'entity_id': sp_data['entityId'],
                 'nameid_policy_str': nameid_policy_str,
                 'requested_authn_context_str': requested_authn_context_str,
-                'attr_consuming_service_str': attr_consuming_service_str
+                'attr_consuming_service_str': attr_consuming_service_str,
+                'sp_id': sp_data['spID']
             }
 
         self.__authn_request = request
